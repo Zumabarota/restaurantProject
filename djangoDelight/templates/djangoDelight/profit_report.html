@@ -1,0 +1,38 @@
+{% extends './base.html' %}
+{% block content %}
+<h2>Profit report</h2>
+<table id="profit_report">
+  <tr>
+    <th>Date</th>
+    <th>Revenue</th>
+    <th>Cost</th>
+    <th>Profit</th>
+  </tr>
+  {% for i in report %}
+  <tr>
+      {% for j in i %}
+      <td>{{ j }}</td>
+      {% endfor %}
+  </tr>
+  {% endfor %}
+    <tr>
+        <td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>Total revenue:</td>
+        <td>${{total_revenue}}</td>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td>Total cost:</td>
+        <td>${{total_cost}}</td>
+        <td></td><td></td>
+    </tr>
+    <tr>
+        <td>Total profit:</td>
+        <td>${{total_profit}}</td>
+        <td></td><td></td>
+    </tr>
+</table>
+
+{% endblock %}

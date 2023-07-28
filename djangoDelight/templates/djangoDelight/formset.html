@@ -1,0 +1,23 @@
+<!--TODO: have the form start from 1 RecipeRequirement item and include a button to add more  -->
+<!--TODO: have the MenuItem name & price in the formset also be editable-->
+<!--TODO: have the MenuItem creation use the same form as update-->
+{% extends './base.html' %}
+{% block content %}
+<h2>Update Menuitem</h2>
+<form method="post">
+    {% csrf_token %} {{ formset.management_form }}
+    <table>
+        <tr>
+            <td>MenuItem Name: </td><td>{{name}}</td>
+            <td>Price: $</td><td>{{price}}</td>
+        </tr>
+    </table>
+    <ul>
+    {% for form in formset %}
+        {{ form.id }}
+        <li>{{ form.amount }}{{ form.ingredient }}</li>
+    {% endfor %}
+    </ul>
+    <input type="submit" value="Submit" />
+</form>
+{% endblock %}

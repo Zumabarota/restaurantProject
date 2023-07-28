@@ -1,0 +1,14 @@
+{% extends './base.html' %}
+{% block content %}
+<h2>Create Purchase</h2>
+<form method="post">
+<div>
+  {% csrf_token %}
+  <table>
+    <tr><td>Amount:</td><td>{{form.amount}}</td></tr>
+    <tr><td>Menu item:</td><td>{{form.menuitem}}</td></tr>
+  </table>
+  <input type="submit" value="Submit" />
+</div>
+</form>
+{% endblock %}

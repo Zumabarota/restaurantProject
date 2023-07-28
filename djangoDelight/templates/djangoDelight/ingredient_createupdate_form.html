@@ -1,0 +1,16 @@
+{% extends './base.html' %}
+{% block content %}
+<h2>Ingredient</h2>
+<form method="post">
+<div>
+  {% csrf_token %}
+  <table>
+    <tr><td>Name:</td><td>{{form.name}}</td></tr>
+    <tr><td>Unit price:</td><td>{{form.unit_price}}</td></tr>
+    <tr><td>Quantity:</td><td>{{form.quantity}}</td></tr>
+    <tr><td>Unit:</td><td>{{form.unit}}</td></tr>
+  </table>
+  <input type="submit" value="Submit" />
+</div>
+</form>
+{% endblock %}

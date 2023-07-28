@@ -1,0 +1,15 @@
+<head><style></style></head>
+<body>
+{% load static %}
+<div>
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'ingredientlist' %}">Ingredients</a>
+    <a href="{% url 'menuitemlist' %}">Menu items</a>
+    <a href="{% url 'purchaselist' %}">Purchases</a>
+    <a href="{% url 'profit_report' %}">Report</a>
+    <a href="{% url 'logout' %}">Log out</a>
+</div>
+
+    {% block content %}
+    {% endblock %}
+</body>
