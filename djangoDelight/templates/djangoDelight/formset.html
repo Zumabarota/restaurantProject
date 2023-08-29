@@ -3,21 +3,25 @@
 <!--TODO: have the MenuItem creation use the same form as update-->
 {% extends './base.html' %}
 {% block content %}
-<h2>Update Menuitem</h2>
+<h2 class="m-3">Update Menuitem</h2>
 <form method="post">
     {% csrf_token %} {{ formset.management_form }}
-    <table>
+    <table class="table table-sm" style="max-width: 400px">
         <tr>
-            <td>MenuItem Name: </td><td>{{name}}</td>
-            <td>Price: $</td><td>{{price}}</td>
+            <td style="width:50%">MenuItem Name: </td><td style="width:50%" class="text-right">{{name}}</td>
         </tr>
-    </table>
-    <ul>
+        <tr>
+            <td>Price: </td><td class="text-right">${{price}}</td>
+        </tr>
     {% for form in formset %}
         {{ form.id }}
-        <li>{{ form.amount }}{{ form.ingredient }}</li>
+        <tr>
+            <td>{{ form.amount }}</td>
+            <td class="text-right">{{ form.ingredient }}</td>
+        </tr>
     {% endfor %}
-    </ul>
-    <input type="submit" value="Submit" />
+    </table>
+    <input type="submit" class="btn btn-outline-success" value="Submit" />
+    <button type="button" onclick="history.back()" class="btn btn-outline-primary">Cancel</button>
 </form>
 {% endblock %}

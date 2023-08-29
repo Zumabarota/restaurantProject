@@ -1,14 +1,15 @@
 {% extends './base.html' %}
 {% block content %}
-<h2>Create Purchase</h2>
+<h2 class="m-3">Purchase</h2>
 <form method="post">
 <div>
   {% csrf_token %}
-  <table>
+  <table class="table table-sm" style="max-width: 400px">
     <tr><td>Amount:</td><td>{{form.amount}}</td></tr>
     <tr><td>Menu item:</td><td>{{form.menuitem}}</td></tr>
   </table>
-  <input type="submit" value="Submit" />
+  <input type="submit" class="btn btn-outline-success" value="Submit" />
+  <button type="button" onclick="history.back()" class="btn btn-outline-primary">Cancel</button>
 </div>
 </form>
 {% endblock %}

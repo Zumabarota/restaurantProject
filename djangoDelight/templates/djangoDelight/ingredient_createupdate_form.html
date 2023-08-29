@@ -1,16 +1,17 @@
 {% extends './base.html' %}
 {% block content %}
-<h2>Ingredient</h2>
+<h2 class="m-3">Ingredient</h2>
 <form method="post">
 <div>
   {% csrf_token %}
-  <table>
+  <table class="table table-sm" style="max-width: 400px">
     <tr><td>Name:</td><td>{{form.name}}</td></tr>
     <tr><td>Unit price:</td><td>{{form.unit_price}}</td></tr>
     <tr><td>Quantity:</td><td>{{form.quantity}}</td></tr>
     <tr><td>Unit:</td><td>{{form.unit}}</td></tr>
   </table>
-  <input type="submit" value="Submit" />
+  <input type="submit" class="btn btn-outline-success" value="Submit" />
+  <button type="button" onclick="history.back()" class="btn btn-outline-primary">Cancel</button>
 </div>
 </form>
 {% endblock %}

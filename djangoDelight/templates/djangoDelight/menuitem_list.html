@@ -1,23 +1,40 @@
 {% extends './base.html' %}
 {% block content %}
-<h2>MenuItem List</h2>
-<a href="{% url 'menuitemcreate' %}"><button class="btn">Add MenuItem</button></a>
-<table id="menuitems">
-  <tr>
-    <th>Name</th>
-    <th>Sale price</th>
-    <th>Cost</th>
-    <th></th>
-    <th></th>
-  </tr>
-  {% for i in menuitem_list %}
-  <tr>
-      <td>{{ i.name }}</td>
-      <td>${{ i.price }}</td>
-      <td>${{ i.cost }}</td>
-      <td><a href="{% url 'formset' i.id %}"><button>Edit</button></a></td>
-<!--      <td><a href="{% url 'menuitemdelete' i.id %}"><button>Delete</button></a></td>-->
-  </tr>
-  {% endfor %}
+<h2 class="m-3">MenuItem List</h2>
+<table class="table" id="menuitems">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th class="text-right">Sale price</th>
+            <th class="text-right">Cost</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for i in menuitem_list %}
+      <tr>
+          <td>{{ i.name }}</td>
+          <td class="text-right">${{ i.price }}</td>
+          <td class="text-right">${{ i.cost }}</td>
+          <td class="text-center">
+            <a href="{% url 'formset' i.id %}">
+              <button type="button" class="btn btn-outline-success">Edit</button>
+            </a>
+<!--              <a href="{% url 'menuitemdelete' i.id %}">-->
+<!--                  <button type="button" class="btn btn-outline-success">Delete</button>-->
+<!--              </a>-->
+          </td>
+
+
+      </tr>
+      {% endfor %}
+    </tbody>
+
 </table>
+<div class="m-3">
+    <a href="{% url 'menuitemcreate' %}">
+        <button class="btn btn-outline-primary">Add MenuItem</button>
+    </a>
+</div>
+
 {% endblock %}

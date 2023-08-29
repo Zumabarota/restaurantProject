@@ -1,11 +1,12 @@
 {% extends './base.html' %}
 {% block content %}
-<h2>Delete Ingredient</h2>
+<h2 class="m-3">Delete Ingredient</h2>
 <form method="post">
 <div>
   {% csrf_token %}
   <p>Are you sure you want to delete "{{ object }}"?</p>
-  <input type="submit" value="Confirm" />
+  <input type="submit" class="btn btn-outline-danger" value="Confirm" />
+  <button type="button" onclick="history.back()" class="btn btn-outline-primary">Cancel</button>
 </div>
 </form>
 {% endblock %}
