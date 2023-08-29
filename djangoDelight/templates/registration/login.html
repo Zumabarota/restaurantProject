@@ -1,20 +1,21 @@
-<head><style></style></head>
-<body>
-{% load static %}
-{% block title %}Login{% endblock %}
+{% extends "djangoDelight/base.html" %}
 {% block content %}
-    <form method="post">
-      {% csrf_token %}
-      <table>
-        {{ form.as_p }}
+<h2 class="m-3">Log in to djangoDelight</h2>
+<form method="post">
+    {% csrf_token %}
+    <table class="table" style="max-width: 400px">
         <tr>
-          <td>&nbsp;</td>
-          <td><input type="submit" value="Submit"></td>
+            <td>{{ form.username.label_tag }}</td>
+            <td>{{ form.username }}</td>
         </tr>
-      </table>
-    </form>
+        <tr>
+            <td>{{ form.password.label_tag }}</td>
+            <td>{{ form.password }}</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="submit" class="btn btn-outline-success" value="Log in"></td>
+        </tr>
+    </table>
+</form>
 {% endblock %}
-</body>
-
-
-
